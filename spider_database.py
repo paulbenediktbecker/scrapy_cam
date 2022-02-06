@@ -77,8 +77,34 @@ class Spider7(scrapy.spiders.Spider):
             'url':response.url
         }
 
-#fotogregor krieg ich nciht hin 
+class Spider8(scrapy.spiders.Spider):
+    name = "fuj8"
+    start_urls = ["https://www.foto-video-sauter.de/product/Fujifilm-X100V-Kompaktkamera-schwarz/FUJX100VBL"]
 
+  
+    def parse(self, response):
+        yield{
+            'status': response.css("div.product-detail-delivery-information p::text").getall()[1].strip(),
+            'url':response.url
+        }
+
+
+class Spider9(scrapy.spiders.Spider):
+    name = "fuj9"
+    start_urls = ["https://webshop.dinkel-foto.de/de/x100v-schwarz.html"]
+
+  
+    def parse(self, response):
+        yield{
+            'status': response.css("p.availability span::text").getall()[1],
+            'url':response.url
+        }
+
+
+#fotogregor krieg ich nciht hin 
+#saturn auch denied 
 #fotoprofi auch kacke
+#fotomundus auch nicht 
+
 def get_all_spiders():
-    return [Spider1,Spider2,Spider3,Spider4,Spider5,Spider6,Spider7]
+    return [Spider1,Spider2,Spider3,Spider4,Spider5,Spider6,Spider7,Spider8,Spider9]
