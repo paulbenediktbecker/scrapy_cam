@@ -96,12 +96,13 @@ def send_error_mail(personal_data):
         print("Email send")
    
 if __name__ == '__main__':
+    personal_data = parse_json()
     try:
         scrapydo.setup()
         
         all_spiders = spider_database.get_all_spiders()
         
-        personal_data = parse_json()
+        
         scrape_base = spider_results(all_spiders)
         minutes_to_wait = 5
         seconds_to_wait = 60 * minutes_to_wait
@@ -134,5 +135,5 @@ if __name__ == '__main__':
             time.sleep(seconds_to_wait)
             counter +=1
     except:
-        send_error_mail()
+        send_error_mail(personal_data)
         
