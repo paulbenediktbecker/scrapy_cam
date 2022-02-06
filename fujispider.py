@@ -135,6 +135,8 @@ if __name__ == '__main__':
             scrape_base = scrape_new
             time.sleep(seconds_to_wait)
             counter +=1
+    except KeyboardInterrupt:
+        pass
     except:
         send_error_mail(personal_data)
         print(traceback.format_exc())
