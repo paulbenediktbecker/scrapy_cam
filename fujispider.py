@@ -12,6 +12,7 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+import traceback
 import json
 import time 
 
@@ -136,4 +137,5 @@ if __name__ == '__main__':
             counter +=1
     except:
         send_error_mail(personal_data)
+        print(traceback.format_exc())
         
