@@ -1,3 +1,4 @@
+from cv2 import trace
 import scrapy
 import scrapydo
 from scrapy import Spider, signals
@@ -139,5 +140,11 @@ if __name__ == '__main__':
         pass
     except:
         send_error_mail(personal_data)
-        print(traceback.format_exc())
+        t = time.localtime()
+        current_time = time.strftime("%H:%M:%S", t)
+        with open("errors.txt","a") as f:
+            f.write(current_time)
+            f.write(traceback.format_exc())
+            f.write("######################################")
+    
         
