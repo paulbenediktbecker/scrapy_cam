@@ -1,4 +1,4 @@
-from cv2 import trace
+
 import scrapy
 import scrapydo
 from scrapy import Spider, signals
@@ -143,8 +143,8 @@ if __name__ == '__main__':
         t = time.localtime()
         current_time = time.strftime("%H:%M:%S", t)
         with open("errors.txt","a") as f:
-            f.write(current_time)
+            f.write( "\n" +current_time + "\n")
             f.write(traceback.format_exc())
-            f.write("######################################")
+            f.write("###################################### \n")
     
         
